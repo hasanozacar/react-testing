@@ -38,14 +38,47 @@ const str: string = 42
 _With Babel, files are transpiled as isolated modules, there is no notion of "project". With TypeScript, files are part of a project and are compiled in that scope._
 
 #### We will use: TS-JEST 
-Install:
+
+### _Important: react-scripts: 4.0.3 ERROR WITH JEST 27 (LAST VERSION ON 16 JUNE 2021)_
+
+```bash
+"dependencies": {
+    ...
+    "react-scripts": "4.0.3",
+    ...
+  },
+```
+
+The CRA (Create-react-app) use de Jest 26 by default when we create a new react project because of if we install JEST 27 or upper with react-script 4.0 we will get the following error when we run the app (not when run the tests):
+
+```bash
+The react-scripts package provided by Create React App requires a dependency:
+
+"jest": "26.6.0"
+
+Don't try to install it manually: your package manager does it automatically.
+However, a different version of jest was detected higher up in the tree:
+
+  C:\...\react-testing-app\node_modules\jest (version: 27.0.0)
+```
+Both versions can not live together. Facebook team will fix this issue in react-script 4.1 --> [Gitlab_Issue](https://github.com/facebook/create-react-app/issues/10747)
+
+For this reason, we don't use the last Jest version --> we will use the 26.6 version:
+```bash
+npm i ts-jest@26.5.6
+npm install --save-dev typescript @types/jest
+npm i jest@26.6.0
+```
+### _If your react-scripts version is upper than 4.0 and support JEST 27_
+
 ```bash
 npm install --save-dev jest typescript ts-jest @types/jest
 ```
 
+
 ### 3. Install missing dependencies 
 
-_(Jest 27 set NODE environment as default instead 'jsdom' fro this reason we will get this error: __ReferenceError: global is not defined).__ To fix:_
+__Only if you use Jest 27__ _(Jest 27 set NODE environment as default instead 'jsdom' fro this reason we will get this error: __ReferenceError: global is not defined).__ To fix:_
 ```bash
 npm i jest-environment-jsdom
 ```

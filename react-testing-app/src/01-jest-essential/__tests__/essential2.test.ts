@@ -1,4 +1,4 @@
-import { saysHello } from './currentValues';
+import { saysHello } from '../currentValues';
 
 //describe - permite describir una serie de pruebas (test suite)
 describe('testing says hello features', () => {

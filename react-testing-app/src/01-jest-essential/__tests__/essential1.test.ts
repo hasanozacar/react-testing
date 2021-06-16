@@ -2,7 +2,7 @@ import {
   CurrentValues,
   reverseString,
   reverseStringAsync,
-} from './currentValues';
+} from '../currentValues';
 
 //text testing
 test('should content a text', () => {

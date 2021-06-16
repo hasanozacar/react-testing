@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { SearchingScreen } from './02-component-rendering/SearchingScreen';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <SearchingScreen />
   </React.StrictMode>,
   document.getElementById('root')
 );
